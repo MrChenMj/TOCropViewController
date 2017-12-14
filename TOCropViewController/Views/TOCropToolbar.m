@@ -21,7 +21,6 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TOCropToolbar.h"
-#import "NSBundle+TOCropViewController.h"
 
 #define RGBACROP(r,g,b,a)      [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:a]
 
@@ -79,6 +78,7 @@
     else {
         self.reverseContentLayout = [[[NSLocale preferredLanguages] objectAtIndex:0] containsString:@"ar"];
     }
+    
     
     _doneTextButton = [UIButton buttonWithType:UIButtonTypeSystem];
    /* [_doneTextButton setTitle:NSLocalizedStringFromTableInBundle(@"Done",
@@ -143,7 +143,8 @@
     
     _resetButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _resetButton.contentMode = UIViewContentModeCenter;
-    [_resetButton setTitle:[NSBundle mj_localizedStringForKey:@"Reset"]
+
+    [_resetButton setTitle:[self mj_getTitleStringByKey:@"Reset"]
      forState:UIControlStateNormal];
     [_resetButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
     [_resetButton setTitleEdgeInsets:UIEdgeInsetsMake(5,0, 0,0)];
@@ -186,7 +187,7 @@
         CGRect frame = CGRectZero;
         frame.size.height = 44.0f;
 
-        frame.size.width = [[NSBundle mj_localizedStringForKey:@"Cancel"] sizeWithAttributes:@{NSFontAttributeName:self.cancelTextButton.titleLabel.font}].width + 10;
+        frame.size.width = [[self mj_getTitleStringByKey:@"Cancel"] sizeWithAttributes:@{NSFontAttributeName:self.cancelTextButton.titleLabel.font}].width + 10;
 
         //If normal layout, place on the left side, else place on the right
         if (self.reverseContentLayout == NO) {
@@ -199,7 +200,7 @@
         
         // Work out the Done button frame
 
-        frame.size.width = [[NSBundle mj_localizedStringForKey:@"Done"] sizeWithAttributes:@{NSFontAttributeName:self.doneTextButton.titleLabel.font}].width + 10;
+        frame.size.width = [[self mj_getTitleStringByKey:@"Done"] sizeWithAttributes:@{NSFontAttributeName:self.doneTextButton.titleLabel.font}].width + 10;
         
         if (self.reverseContentLayout == NO) {
             frame.origin.x = boundsSize.width - (frame.size.width + insetPadding);
@@ -601,5 +602,23 @@
 {
     return self.rotateCounterclockwiseButton;
 }
-
+- (NSString *)mj_getTitleStringByKey:(NSString *)key
+{
+    // In CocoaPods, strings are stored in a separate bundle from the main one
+    NSBundle *resourceBundle = nil;
+    NSBundle *classBundle = [NSBundle bundleForClass:[self class]];
+    NSURL *resourceBundleURL = [classBundle URLForResource:@"TOCropViewControllerBundle" withExtension:@"bundle"];
+    if (resourceBundleURL) {
+        resourceBundle = [[NSBundle alloc] initWithURL:resourceBundleURL];
+    }
+    else {
+        resourceBundle = classBundle;
+    }
+    NSString *titleStr = @"";
+    titleStr =  NSLocalizedStringFromTableInBundle(key,
+                                        @"TOCropViewControllerLocalizable",
+                                        resourceBundle,
+                                                 nil);
+    return titleStr;
+}
 @end

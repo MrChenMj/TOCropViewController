@@ -60,6 +60,21 @@
 @end
 
 @implementation TOCropToolbar
++ (NSBundle *)bundle
+{
+    static NSBundle *bundle = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"TOCropViewController" withExtension:@"bundle"];
+        bundle = [[NSBundle alloc] initWithURL:bundleURL];
+    });
+    return bundle;
+}
+
+static inline NSString *MJLocalizedString(NSString *key, NSString *comment)
+{
+    return [[TOCropToolbar bundle] localizedStringForKey:key value:nil table:@"Localizable"];
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -143,10 +158,7 @@
     
     _resetButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _resetButton.contentMode = UIViewContentModeCenter;
-    [_resetButton setTitle:NSLocalizedStringFromTableInBundle(@"Reset",
-     @"TOCropViewControllerLocalizable",
-     [NSBundle bundleForClass:[self class]],
-     nil)
+    [_resetButton setTitle:MJLocalizedString(@"Reset", nil)
      forState:UIControlStateNormal];
     [_resetButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
     [_resetButton setTitleEdgeInsets:UIEdgeInsetsMake(5,0, 0,0)];
@@ -188,10 +200,8 @@
         // Work out the cancel button frame
         CGRect frame = CGRectZero;
         frame.size.height = 44.0f;
-        frame.size.width = [NSLocalizedStringFromTableInBundle(@"Cancel",
-                                                               @"TOCropViewControllerLocalizable",
-                                                               [NSBundle bundleForClass:[self class]],
-                                                               nil) sizeWithAttributes:@{NSFontAttributeName:self.cancelTextButton.titleLabel.font}].width + 10;
+       
+        frame.size.width = [MJLocalizedString(@"Cancel", nil) sizeWithAttributes:@{NSFontAttributeName:self.cancelTextButton.titleLabel.font}].width + 10;
 
         //If normal layout, place on the left side, else place on the right
         if (self.reverseContentLayout == NO) {
@@ -203,10 +213,8 @@
         self.cancelTextButton.frame = frame;
         
         // Work out the Done button frame
-        frame.size.width = [NSLocalizedStringFromTableInBundle(@"Done",
-                                                               @"TOCropViewControllerLocalizable",
-                                                               [NSBundle bundleForClass:[self class]],
-                                                               nil) sizeWithAttributes:@{NSFontAttributeName:self.doneTextButton.titleLabel.font}].width + 10;
+   
+        frame.size.width = [MJLocalizedString(@"Done", nil) sizeWithAttributes:@{NSFontAttributeName:self.doneTextButton.titleLabel.font}].width + 10;
         
         if (self.reverseContentLayout == NO) {
             frame.origin.x = boundsSize.width - (frame.size.width + insetPadding);

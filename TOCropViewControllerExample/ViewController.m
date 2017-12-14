@@ -91,7 +91,6 @@
 {
     if (self.imageView.image == nil)
         return;
-    
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:@[self.imageView.image] applicationActivities:nil];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [self presentViewController:activityController animated:YES completion:nil];
@@ -135,7 +134,6 @@
         // Uncomment to hide rotation buttons
         cropController.toolbar.rotateClockwiseButtonHidden = true;
 //        cropController.toolbar.rotateCounterClockwiseButtonHidden = true;
-        
         [self presentViewController:cropController animated:YES completion:nil];
     }];
 }

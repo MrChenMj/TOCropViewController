@@ -123,7 +123,6 @@
     self.inTransition = NO;
     if (animated && [UIApplication sharedApplication].statusBarHidden == NO) {
         [UIView animateWithDuration:0.3f animations:^{ [self setNeedsStatusBarAppearanceUpdate]; }];
-        
         if (self.cropView.gridOverlayHidden)
             [self.cropView setGridOverlayHidden:NO animated:YES];
     }

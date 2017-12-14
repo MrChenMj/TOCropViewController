@@ -30,6 +30,7 @@
 		B42021861FE2434300E92D38 /* icon_cut_dui@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42021801FE2434200E92D38 /* icon_cut_dui@2x.png */; };
 		B42021871FE2434300E92D38 /* icon_cut_rotate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42021811FE2434200E92D38 /* icon_cut_rotate@2x.png */; };
 		B42021881FE2434300E92D38 /* icon_cut_rotate@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42021821FE2434200E92D38 /* icon_cut_rotate@3x.png */; };
+		B420218A1FE26A1000E92D38 /* TOCropViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B42021891FE26A1000E92D38 /* TOCropViewController.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		B42021801FE2434200E92D38 /* icon_cut_dui@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cut_dui@2x.png"; sourceTree = "<group>"; };
 		B42021811FE2434200E92D38 /* icon_cut_rotate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cut_rotate@2x.png"; sourceTree = "<group>"; };
 		B42021821FE2434200E92D38 /* icon_cut_rotate@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cut_rotate@3x.png"; sourceTree = "<group>"; };
+		B42021891FE26A1000E92D38 /* TOCropViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TOCropViewController.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 				B42021821FE2434200E92D38 /* icon_cut_rotate@3x.png */,
 				B420217E1FE2434200E92D38 /* icon_cut_X@2x.png */,
 				B420217F1FE2434200E92D38 /* icon_cut_X@3x.png */,
+				B42021891FE26A1000E92D38 /* TOCropViewController.bundle */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				B42021831FE2434300E92D38 /* icon_cut_dui@3x.png in Resources */,
 				2234247E1ABBC0CD00BBC2B1 /* LaunchScreen.xib in Resources */,
 				B42021861FE2434300E92D38 /* icon_cut_dui@2x.png in Resources */,
+				B420218A1FE26A1000E92D38 /* TOCropViewController.bundle in Resources */,
 				2234247B1ABBC0CD00BBC2B1 /* Images.xcassets in Resources */,
 				22C3C5471AC8CA0D00E86280 /* TOCropViewControllerLocalizable.strings in Resources */,
 				B42021881FE2434300E92D38 /* icon_cut_rotate@3x.png in Resources */,

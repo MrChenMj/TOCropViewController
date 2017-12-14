@@ -24,6 +24,12 @@
 		22DB4D9A1B234D07008B8466 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D931B234D07008B8466 /* TOCropToolbar.m */; };
 		22DB4D9B1B234D07008B8466 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D951B234D07008B8466 /* TOCropView.m */; };
 		22DB4D9E1B234D4F008B8466 /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D9D1B234D4F008B8466 /* TOActivityCroppedImageProvider.m */; };
+		B42021831FE2434300E92D38 /* icon_cut_dui@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B420217D1FE2434200E92D38 /* icon_cut_dui@3x.png */; };
+		B42021841FE2434300E92D38 /* icon_cut_X@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B420217E1FE2434200E92D38 /* icon_cut_X@2x.png */; };
+		B42021851FE2434300E92D38 /* icon_cut_X@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B420217F1FE2434200E92D38 /* icon_cut_X@3x.png */; };
+		B42021861FE2434300E92D38 /* icon_cut_dui@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42021801FE2434200E92D38 /* icon_cut_dui@2x.png */; };
+		B42021871FE2434300E92D38 /* icon_cut_rotate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42021811FE2434200E92D38 /* icon_cut_rotate@2x.png */; };
+		B42021881FE2434300E92D38 /* icon_cut_rotate@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42021821FE2434200E92D38 /* icon_cut_rotate@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +90,12 @@
 		22DB4D9D1B234D4F008B8466 /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityCroppedImageProvider.m; sourceTree = "<group>"; };
 		6AE313501C47DAA200894C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6AE313511C47DAA200894C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		B420217D1FE2434200E92D38 /* icon_cut_dui@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cut_dui@3x.png"; sourceTree = "<group>"; };
+		B420217E1FE2434200E92D38 /* icon_cut_X@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cut_X@2x.png"; sourceTree = "<group>"; };
+		B420217F1FE2434200E92D38 /* icon_cut_X@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cut_X@3x.png"; sourceTree = "<group>"; };
+		B42021801FE2434200E92D38 /* icon_cut_dui@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cut_dui@2x.png"; sourceTree = "<group>"; };
+		B42021811FE2434200E92D38 /* icon_cut_rotate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cut_rotate@2x.png"; sourceTree = "<group>"; };
+		B42021821FE2434200E92D38 /* icon_cut_rotate@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cut_rotate@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +179,7 @@
 		223424931ABBC4E900BBC2B1 /* TOCropViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B420217C1FE2421300E92D38 /* Resources */,
 				22DB4D881B234D07008B8466 /* Models */,
 				22DB4D8D1B234D07008B8466 /* Views */,
 				22DB4D821B234CFA008B8466 /* TOCropViewController.h */,
@@ -206,6 +219,19 @@
 			);
 			name = Views;
 			path = TOCropViewController/Views;
+			sourceTree = "<group>";
+		};
+		B420217C1FE2421300E92D38 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B42021801FE2434200E92D38 /* icon_cut_dui@2x.png */,
+				B420217D1FE2434200E92D38 /* icon_cut_dui@3x.png */,
+				B42021811FE2434200E92D38 /* icon_cut_rotate@2x.png */,
+				B42021821FE2434200E92D38 /* icon_cut_rotate@3x.png */,
+				B420217E1FE2434200E92D38 /* icon_cut_X@2x.png */,
+				B420217F1FE2434200E92D38 /* icon_cut_X@3x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,11 +283,12 @@
 				TargetAttributes = {
 					220611961B2E6777001A467B = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = AT993V467J;
 						TestTargetID = 223424691ABBC0CD00BBC2B1;
 					};
 					223424691ABBC0CD00BBC2B1 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 6L2GS8R995;
+						DevelopmentTeam = AT993V467J;
 					};
 				};
 			};
@@ -311,9 +338,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				223424791ABBC0CD00BBC2B1 /* Main.storyboard in Resources */,
+				B42021851FE2434300E92D38 /* icon_cut_X@3x.png in Resources */,
+				B42021841FE2434300E92D38 /* icon_cut_X@2x.png in Resources */,
+				B42021831FE2434300E92D38 /* icon_cut_dui@3x.png in Resources */,
 				2234247E1ABBC0CD00BBC2B1 /* LaunchScreen.xib in Resources */,
+				B42021861FE2434300E92D38 /* icon_cut_dui@2x.png in Resources */,
 				2234247B1ABBC0CD00BBC2B1 /* Images.xcassets in Resources */,
 				22C3C5471AC8CA0D00E86280 /* TOCropViewControllerLocalizable.strings in Resources */,
+				B42021881FE2434300E92D38 /* icon_cut_rotate@3x.png in Resources */,
+				B42021871FE2434300E92D38 /* icon_cut_rotate@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +439,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = AT993V467J;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -425,6 +459,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = AT993V467J;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = TOCropViewControllerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
@@ -470,7 +505,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
@@ -507,7 +542,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
@@ -522,8 +557,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = AT993V467J;
 				INFOPLIST_FILE = TOCropViewControllerExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.timoliver.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -537,8 +573,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = AT993V467J;
 				INFOPLIST_FILE = TOCropViewControllerExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.timoliver.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

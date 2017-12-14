@@ -21,6 +21,7 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TOCropOverlayView.h"
+#define RGBACROP(r,g,b,a)      [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:a]
 
 static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
 
@@ -226,7 +227,8 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
 
 - (nonnull UIView *)createNewLineView {
     UIView *newLine = [[UIView alloc] initWithFrame:CGRectZero];
-    newLine.backgroundColor = [UIColor whiteColor];
+//    newLine.backgroundColor = [UIColor whiteColor];
+    newLine.backgroundColor = RGBACROP(255,77,91,1);
     [self addSubview:newLine];
     return newLine;
 }

@@ -22,7 +22,11 @@
 
 #import "TOCropToolbar.h"
 
+#define RGBACROP(r,g,b,a)      [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:a]
+
 #define kTOCropToolbarShowButtonsContainerRectForDebugging     0   // convenience debug toggle
+#define KResColorNor RGBACROP(255,77,91,1)
+#define KResColorDid RGBACROP(200,200,200,0.4)
 
 @interface TOCropToolbar()
 
@@ -32,9 +36,11 @@
 @property (nonatomic, strong, readwrite) UIButton *cancelTextButton;
 @property (nonatomic, strong, readwrite) UIButton *cancelIconButton;
 
+@property (nonatomic, strong, readwrite) UIButton *resetTextButton;
+@property (nonatomic, strong, readwrite) UIButton *resetIconButton;
+
 @property (nonatomic, strong) UIButton *rotateCounterclockwiseButton;
 @property (nonatomic, strong) UIButton *rotateClockwiseButton;
-@property (nonatomic, strong) UIButton *resetButton;
 @property (nonatomic, strong) UIButton *clampButton;
 
 @property (nonatomic, strong) UIButton *rotateButton; // defaults to counterclockwise button for legacy compatibility
@@ -76,63 +82,78 @@
     }
     
     _doneTextButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_doneTextButton setTitle:NSLocalizedStringFromTableInBundle(@"Done",
+   /* [_doneTextButton setTitle:NSLocalizedStringFromTableInBundle(@"Done",
                                                                  @"TOCropViewControllerLocalizable",
                                                                  [NSBundle bundleForClass:[self class]],
                                                                  nil)
                      forState:UIControlStateNormal];
-    [_doneTextButton setTitleColor:[UIColor colorWithRed:1.0f green:0.8f blue:0.0f alpha:1.0f] forState:UIControlStateNormal];
+    [_doneTextButton setTitleColor:[UIColor colorWithRed:1.0f green:0.8f blue:0.0f alpha:1.0f] forState:UIControlStateNormal];*/
+    [_doneTextButton setImage:[TOCropToolbar doneImage] forState:UIControlStateNormal];
+    [_doneTextButton setTintColor:RGBACROP(255,77,91,1)];
     [_doneTextButton.titleLabel setFont:[UIFont systemFontOfSize:17.0f]];
     [_doneTextButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_doneTextButton];
     
     _doneIconButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_doneIconButton setImage:[TOCropToolbar doneImage] forState:UIControlStateNormal];
-    [_doneIconButton setTintColor:[UIColor colorWithRed:1.0f green:0.8f blue:0.0f alpha:1.0f]];
+    [_doneIconButton setTintColor:RGBACROP(255,77,91,1)];
     [_doneIconButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_doneIconButton];
     
     _cancelTextButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_cancelTextButton setTitle:NSLocalizedStringFromTableInBundle(@"Cancel",
+  /*  [_cancelTextButton setTitle:NSLocalizedStringFromTableInBundle(@"Cancel",
                                                                    @"TOCropViewControllerLocalizable",
                                                                    [NSBundle bundleForClass:[self class]],
                                                                    nil)
                        forState:UIControlStateNormal];
-    [_cancelTextButton.titleLabel setFont:[UIFont systemFontOfSize:17.0f]];
+    [_cancelTextButton.titleLabel setFont:[UIFont systemFontOfSize:17.0f]];*/
     [_cancelTextButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [_cancelTextButton setImage:[TOCropToolbar cancelImage] forState:UIControlStateNormal];
+    [_cancelTextButton setTintColor:RGBACROP(255,77,91,1)];
     [self addSubview:_cancelTextButton];
     
     _cancelIconButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_cancelIconButton setImage:[TOCropToolbar cancelImage] forState:UIControlStateNormal];
     [_cancelIconButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [_cancelIconButton setTintColor:RGBACROP(255,77,91,1)];
     [self addSubview:_cancelIconButton];
     
     _clampButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _clampButton.contentMode = UIViewContentModeCenter;
-    _clampButton.tintColor = [UIColor whiteColor];
+//    _clampButton.tintColor = [UIColor whiteColor];
+    [_clampButton setTintColor:RGBACROP(255,77,91,1)];
     [_clampButton setImage:[TOCropToolbar clampImage] forState:UIControlStateNormal];
     [_clampButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_clampButton];
     
     _rotateClockwiseButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _rotateClockwiseButton.contentMode = UIViewContentModeCenter;
-    _rotateClockwiseButton.tintColor = [UIColor whiteColor];
+//    _rotateClockwiseButton.tintColor = [UIColor whiteColor];
+    [_rotateClockwiseButton setTintColor:RGBACROP(255,77,91,1)];
     [_rotateClockwiseButton setImage:[TOCropToolbar rotateCWImage] forState:UIControlStateNormal];
     [_rotateClockwiseButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_rotateClockwiseButton];
     
     _rotateCounterclockwiseButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _rotateCounterclockwiseButton.contentMode = UIViewContentModeCenter;
-    _rotateCounterclockwiseButton.tintColor = [UIColor whiteColor];
+//    _rotateCounterclockwiseButton.tintColor = [UIColor whiteColor];
+    [_rotateCounterclockwiseButton setTintColor:RGBACROP(255,77,91,1)];
     [_rotateCounterclockwiseButton setImage:[TOCropToolbar rotateCCWImage] forState:UIControlStateNormal];
     [_rotateCounterclockwiseButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_rotateCounterclockwiseButton];
     
     _resetButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _resetButton.contentMode = UIViewContentModeCenter;
-    _resetButton.tintColor = [UIColor whiteColor];
-    _resetButton.enabled = NO;
-    [_resetButton setImage:[TOCropToolbar resetImage] forState:UIControlStateNormal];
+    [_resetButton setTitle:NSLocalizedStringFromTableInBundle(@"Reset",
+     @"TOCropViewControllerLocalizable",
+     [NSBundle bundleForClass:[self class]],
+     nil)
+     forState:UIControlStateNormal];
+    [_resetButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
+    [_resetButton setTitleEdgeInsets:UIEdgeInsetsMake(5,0, 0,0)];
+    [_resetButton setTintColor:KResColorDid];
+//    _resetButton.tintColor = [UIColor whiteColor];
+    _resetButton.userInteractionEnabled = NO;
     [_resetButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_resetButton];
 }
@@ -168,7 +189,10 @@
         // Work out the cancel button frame
         CGRect frame = CGRectZero;
         frame.size.height = 44.0f;
-        frame.size.width = [self.cancelTextButton.titleLabel.text sizeWithAttributes:@{NSFontAttributeName:self.cancelTextButton.titleLabel.font}].width + 10;
+        frame.size.width = [NSLocalizedStringFromTableInBundle(@"Cancel",
+                                                               @"TOCropViewControllerLocalizable",
+                                                               [NSBundle bundleForClass:[self class]],
+                                                               nil) sizeWithAttributes:@{NSFontAttributeName:self.cancelTextButton.titleLabel.font}].width + 10;
 
         //If normal layout, place on the left side, else place on the right
         if (self.reverseContentLayout == NO) {
@@ -180,7 +204,10 @@
         self.cancelTextButton.frame = frame;
         
         // Work out the Done button frame
-        frame.size.width = [self.doneTextButton.titleLabel.text sizeWithAttributes:@{NSFontAttributeName:self.doneTextButton.titleLabel.font}].width + 10;
+        frame.size.width = [NSLocalizedStringFromTableInBundle(@"Done",
+                                                               @"TOCropViewControllerLocalizable",
+                                                               [NSBundle bundleForClass:[self class]],
+                                                               nil) sizeWithAttributes:@{NSFontAttributeName:self.doneTextButton.titleLabel.font}].width + 10;
         
         if (self.reverseContentLayout == NO) {
             frame.origin.x = boundsSize.width - (frame.size.width + insetPadding);
@@ -276,6 +303,12 @@
         CGPoint origin = horizontally ? CGPointMake(diffOffset, sameOffset) : CGPointMake(sameOffset, diffOffset);
         if (horizontally) {
             origin.x += CGRectGetMinX(containerRect);
+            if (i==0) {
+                origin.x += 15;
+            }else if(i==1)
+            {
+                origin.x -= 15;
+            }
         } else {
             origin.y += CGRectGetMinY(containerRect);
         }
@@ -345,12 +378,18 @@
 
 - (BOOL)resetButtonEnabled
 {
-    return self.resetButton.enabled;
+    return self.resetButton.userInteractionEnabled;
 }
 
 - (void)setResetButtonEnabled:(BOOL)resetButtonEnabled
 {
-    self.resetButton.enabled = resetButtonEnabled;
+    if (!resetButtonEnabled) {
+        [_resetButton setTintColor:KResColorDid];
+    }else
+    {
+        [_resetButton setTintColor:KResColorNor];
+    }
+    self.resetButton.userInteractionEnabled = resetButtonEnabled;
 }
 
 - (CGRect)doneButtonFrame
@@ -457,8 +496,7 @@
     UIGraphicsBeginImageContextWithOptions(rotateCCWImage.size, NO, rotateCCWImage.scale);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextTranslateCTM(context, rotateCCWImage.size.width, rotateCCWImage.size.height);
-    CGContextRotateCTM(context, M_PI);
-    CGContextDrawImage(context,CGRectMake(0,0,rotateCCWImage.size.width,rotateCCWImage.size.height),rotateCCWImage.CGImage);
+    CGContextRotateCTM(context, M_PI);CGContextDrawImage(context,CGRectMake(0,0,rotateCCWImage.size.width,rotateCCWImage.size.height),rotateCCWImage.CGImage);
     UIImage *rotateCWImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return rotateCWImage;

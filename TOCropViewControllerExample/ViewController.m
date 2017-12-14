@@ -128,12 +128,12 @@
         self.image = image;
         TOCropViewController *cropController = [[TOCropViewController alloc] initWithImage:image];
         cropController.delegate = self;
-        
+        cropController.toolbar.clampButtonHidden = true;
         // Uncomment this to place the toolbar at the top of the view controller
         // cropController.toolbarPosition = TOCropViewControllerToolbarPositionTop;
         
         // Uncomment to hide rotation buttons
-//        cropController.toolbar.rotateClockwiseButtonHidden = true;
+        cropController.toolbar.rotateClockwiseButtonHidden = true;
 //        cropController.toolbar.rotateCounterClockwiseButtonHidden = true;
         
         [self presentViewController:cropController animated:YES completion:nil];

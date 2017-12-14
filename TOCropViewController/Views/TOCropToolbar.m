@@ -66,12 +66,11 @@
     if (self = [super initWithFrame:frame]) {
         [self setup];
     }
-    
     return self;
 }
 
 - (void)setup {
-    self.backgroundColor = [UIColor colorWithWhite:0.12f alpha:1.0f];
+    self.backgroundColor =RGBACROP(50, 50, 50, 1); //[UIColor colorWithWhite:0.12f alpha:1.0f];
     
     // On iOS 9, we can use the new layout features to determine whether we're in an 'Arabic' style language mode
     if ([UIView resolveClassMethod:@selector(userInterfaceLayoutDirectionForSemanticContentAttribute:)]) {

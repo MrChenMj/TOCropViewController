@@ -73,7 +73,7 @@
 
 static inline NSString *MJLocalizedString(NSString *key, NSString *comment)
 {
-    return [[TOCropToolbar bundle] localizedStringForKey:key value:nil table:@"Localizable"];
+    return [[TOCropToolbar bundle] localizedStringForKey:key value:nil table:@"TOCropViewControllerLocalizable"];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

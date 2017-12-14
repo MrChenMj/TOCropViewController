@@ -21,6 +21,7 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TOCropToolbar.h"
+#import "NSBundle+TOCropViewController.h"
 
 #define RGBACROP(r,g,b,a)      [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:a]
 
@@ -60,22 +61,6 @@
 @end
 
 @implementation TOCropToolbar
-+ (NSBundle *)bundle
-{
-    static NSBundle *bundle = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"TOCropViewController" withExtension:@"bundle"];
-        bundle = [[NSBundle alloc] initWithURL:bundleURL];
-    });
-    return bundle;
-}
-
-static inline NSString *MJLocalizedString(NSString *key, NSString *comment)
-{
-    return [[TOCropToolbar bundle] localizedStringForKey:key value:nil table:@"TOCropViewControllerLocalizable"];
-}
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
@@ -158,7 +143,7 @@ static inline NSString *MJLocalizedString(NSString *key, NSString *comment)
     
     _resetButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _resetButton.contentMode = UIViewContentModeCenter;
-    [_resetButton setTitle:MJLocalizedString(@"Reset", nil)
+    [_resetButton setTitle:[NSBundle mj_localizedStringForKey:@"Reset"]
      forState:UIControlStateNormal];
     [_resetButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
     [_resetButton setTitleEdgeInsets:UIEdgeInsetsMake(5,0, 0,0)];
@@ -200,8 +185,8 @@ static inline NSString *MJLocalizedString(NSString *key, NSString *comment)
         // Work out the cancel button frame
         CGRect frame = CGRectZero;
         frame.size.height = 44.0f;
-       
-        frame.size.width = [MJLocalizedString(@"Cancel", nil) sizeWithAttributes:@{NSFontAttributeName:self.cancelTextButton.titleLabel.font}].width + 10;
+
+        frame.size.width = [[NSBundle mj_localizedStringForKey:@"Cancel"] sizeWithAttributes:@{NSFontAttributeName:self.cancelTextButton.titleLabel.font}].width + 10;
 
         //If normal layout, place on the left side, else place on the right
         if (self.reverseContentLayout == NO) {
@@ -213,8 +198,8 @@ static inline NSString *MJLocalizedString(NSString *key, NSString *comment)
         self.cancelTextButton.frame = frame;
         
         // Work out the Done button frame
-   
-        frame.size.width = [MJLocalizedString(@"Done", nil) sizeWithAttributes:@{NSFontAttributeName:self.doneTextButton.titleLabel.font}].width + 10;
+
+        frame.size.width = [[NSBundle mj_localizedStringForKey:@"Done"] sizeWithAttributes:@{NSFontAttributeName:self.doneTextButton.titleLabel.font}].width + 10;
         
         if (self.reverseContentLayout == NO) {
             frame.origin.x = boundsSize.width - (frame.size.width + insetPadding);
@@ -257,7 +242,6 @@ static inline NSString *MJLocalizedString(NSString *key, NSString *comment)
         if (!self.rotateClockwiseButtonHidden) {
             [buttonsInOrderHorizontally addObject:self.rotateClockwiseButton];
         }
-        
         
         [self layoutToolbarButtons:buttonsInOrderHorizontally withSameButtonSize:buttonSize inContainerRect:containerRect horizontally:YES];
     }

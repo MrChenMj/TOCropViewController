@@ -31,6 +31,7 @@
 		B42021871FE2434300E92D38 /* icon_cut_rotate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42021811FE2434200E92D38 /* icon_cut_rotate@2x.png */; };
 		B42021881FE2434300E92D38 /* icon_cut_rotate@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42021821FE2434200E92D38 /* icon_cut_rotate@3x.png */; };
 		B420218A1FE26A1000E92D38 /* TOCropViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B42021891FE26A1000E92D38 /* TOCropViewController.bundle */; };
+		B420218D1FE270DD00E92D38 /* NSBundle+TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B420218C1FE270DD00E92D38 /* NSBundle+TOCropViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,8 @@
 		B42021811FE2434200E92D38 /* icon_cut_rotate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cut_rotate@2x.png"; sourceTree = "<group>"; };
 		B42021821FE2434200E92D38 /* icon_cut_rotate@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cut_rotate@3x.png"; sourceTree = "<group>"; };
 		B42021891FE26A1000E92D38 /* TOCropViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TOCropViewController.bundle; sourceTree = "<group>"; };
+		B420218B1FE270DD00E92D38 /* NSBundle+TOCropViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+TOCropViewController.h"; sourceTree = "<group>"; };
+		B420218C1FE270DD00E92D38 /* NSBundle+TOCropViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+TOCropViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +236,8 @@
 				B420217E1FE2434200E92D38 /* icon_cut_X@2x.png */,
 				B420217F1FE2434200E92D38 /* icon_cut_X@3x.png */,
 				B42021891FE26A1000E92D38 /* TOCropViewController.bundle */,
+				B420218B1FE270DD00E92D38 /* NSBundle+TOCropViewController.h */,
+				B420218C1FE270DD00E92D38 /* NSBundle+TOCropViewController.m */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				223424731ABBC0CD00BBC2B1 /* AppDelegate.m in Sources */,
 				223424701ABBC0CD00BBC2B1 /* main.m in Sources */,
 				22DB4D981B234D07008B8466 /* TOCropOverlayView.m in Sources */,
+				B420218D1FE270DD00E92D38 /* NSBundle+TOCropViewController.m in Sources */,
 				22DB4D9E1B234D4F008B8466 /* TOActivityCroppedImageProvider.m in Sources */,
 				22DB4D961B234D07008B8466 /* TOCropViewControllerTransitioning.m in Sources */,
 				22DB4D991B234D07008B8466 /* TOCropScrollView.m in Sources */,

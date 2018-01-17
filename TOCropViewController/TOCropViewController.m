@@ -110,7 +110,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     if ([UIApplication sharedApplication].statusBarHidden == NO) {
         self.inTransition = YES;
         [self setNeedsStatusBarAppearanceUpdate];
@@ -139,6 +139,7 @@
 {
     [super viewDidDisappear:animated];
     self.inTransition = NO;
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     [self setNeedsStatusBarAppearanceUpdate];
 }
 

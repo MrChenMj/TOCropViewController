@@ -110,8 +110,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     if ([UIApplication sharedApplication].statusBarHidden == NO) {
         self.inTransition = YES;
         [self setNeedsStatusBarAppearanceUpdate];
@@ -122,6 +121,7 @@
 {
     [super viewDidAppear:animated];
     self.inTransition = NO;
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     if (animated && [UIApplication sharedApplication].statusBarHidden == NO) {
         [UIView animateWithDuration:0.3f animations:^{ [self setNeedsStatusBarAppearanceUpdate]; }];
         if (self.cropView.gridOverlayHidden)
@@ -133,6 +133,7 @@
 {
     [super viewWillDisappear:animated];
     self.inTransition = YES;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     [UIView animateWithDuration:0.5f animations:^{ [self setNeedsStatusBarAppearanceUpdate]; }];
 }
 
@@ -140,8 +141,7 @@
 {
     [super viewDidDisappear:animated];
     self.inTransition = NO;
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
